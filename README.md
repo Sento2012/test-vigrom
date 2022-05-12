@@ -2,7 +2,8 @@
 
 Для запуска выполнить команду `make install` из корневой папки
 
-Для добавления новой транзакции для пользователя необходимо выполнить из консоли: `curl -X POST "http://localhost:8000/transaction" --data "amount=1.0&type=debit&currency=rub&reason=stock&wallet_id=1"` 
+Для добавления новой транзакции для пользователя необходимо выполнить из консоли: `curl -X POST "http://localhost:8000/transaction" --data "amount=1.0&type=debit&currency=rub&reason=stock&wallet_id=1"`
+
 Возможные значения для валют: rub, usd
 
 Возможные значения для type: debit, credit

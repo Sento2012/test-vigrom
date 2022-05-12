@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+    php-apache-environment-test-api:
+        container_name: php-apache-test-api
+        build:
+            context: ./src
+            dockerfile: Dockerfile
+        depends_on:
+            - db-test-api
+        volumes:
+            - ./src:/var/www/html/
+        ports:
+            - 8000:80
+    db-test-api:
+        container_name: db-test-api
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: root
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+        ports:
+            - "9906:3306"

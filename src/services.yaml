@@ -1,0 +1,41 @@
+services:
+  App\Components\TransactionManager:
+    class: App\Components\TransactionManager
+    arguments:
+      - '@App\Repository\WalletProvider'
+      - '@App\Repository\TransactionProvider'
+      - '@App\Components\BalanceCalculator'
+
+  App\Components\WalletManager:
+    class: App\Components\WalletManager
+    arguments:
+      - '@App\Repository\WalletProvider'
+
+  App\Components\BalanceCalculator:
+    class: App\Components\BalanceCalculator
+    arguments:
+      - '@App\Repository\CurrencyProvider'
+
+  App\Repository\WalletProvider:
+    class: App\Repository\WalletProvider
+
+  App\Repository\CurrencyProvider:
+    class: App\Repository\CurrencyProvider
+
+  App\Repository\TransactionProvider:
+    class: App\Repository\TransactionProvider
+
+  App\Components\TimeConverter:
+    class: App\Components\TimeConverter
+
+  App\Repository\CityProvider:
+    class: App\Repository\CityProvider
+
+  App\Components\SyncManager:
+    class: App\Components\SyncManager
+    arguments:
+      - '@App\Repository\CityProvider'
+      - '@App\Components\TimeZoneParser'
+
+  App\Components\TimeZoneParser:
+    class: App\Components\TimeZoneParser

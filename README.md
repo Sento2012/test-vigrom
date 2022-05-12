@@ -15,4 +15,4 @@
 
 Запрос на получение суммы транзакций за последние 7 дней:
 
-`SELECT sum(amount) FROM transactions WHERE create_at > DATE(DATE_SUB(NOW(), INTERVAL 7 DAY)) AND reason = 'refund';;`
+`SELECT sum(amount) FROM transactions WHERE create_at > DATE(DATE_SUB(NOW(), INTERVAL 7 DAY)) AND reason = 'refund';`

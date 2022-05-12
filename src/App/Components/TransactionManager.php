@@ -60,6 +60,7 @@ class TransactionManager implements TransactionManagerInterface
             Transaction::FIELD_TYPE => $transactionCreateRequestObject->getType(),
             Transaction::FIELD_AMOUNT => $transactionCreateRequestObject->getAmount(),
             Transaction::FIELD_REASON => $transactionCreateRequestObject->getReason(),
+            Transaction::FIELD_CREATE_AT => date(Transaction::DATE_FORMAT_CREATE_AT),
         ]);
     }
 

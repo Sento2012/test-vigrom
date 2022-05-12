@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS `currency_rates`
     `id`           int NOT NULL AUTO_INCREMENT,
     `currency`     varchar(5) NOT NULL,
     `rate`         double NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    INDEX USING BTREE (`currency`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `wallets`
@@ -33,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `transactions`
     `amount`       double NOT NULL,
     `type`         varchar(255) NOT NULL,
     `reason`       varchar(255) NOT NULL,
+    `create_at`    datetime,
     PRIMARY KEY (`id`),
     FOREIGN KEY (`wallet_id`) REFERENCES wallets(`id`) ON DELETE CASCADE,
     INDEX USING BTREE (`wallet_id`)

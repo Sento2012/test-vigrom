@@ -8,3 +8,6 @@
 Возможные значения для reason: stock, refund
 
 Для получения текущего баланса кошелька необходимо выполнить из консоли: `curl -X GET "http://localhost:8000/wallet/1"`
+
+Запрос на получение суммы транзакций за последние 7 дней:
+`SELECT sum(amount) FROM transactions WHERE create_at < ( DATE(NOW()) - INTERVAL 7 DAYS ) AND reason = 'refund';`

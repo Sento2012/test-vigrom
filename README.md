@@ -2,8 +2,9 @@
 
 Для запуска выполнить команду `make install` из корневой папки
 
-Для получения локального времени города: `http://localhost:8000/dst/get-local-time/746bdf1d-d154-46cd-b104-9415fcc39e35` 
+Для добавления новой транзакции для пользователя необходимо выполнить из консоли: `curl -X POST "http://localhost:8000/transaction" --data "amount=1.0&type=debit&currency=rub&reason=stock&wallet_id=1"` 
+Возможные значения для валют: rub, usd
+Возможные значения для type: debit, credit
+Возможные значения для reason: stock, refund
 
-Для обратного преобразования: `http://localhost:8000/dst/get-utc-time/746bdf1d-d154-46cd-b104-9415fcc39e35/123123213`
-
-Крон для обнлвления запускается раз в полночь командой `php index.php Api.Controllers.CliController sync`
+Для получения текущего баланса кошелька необходимо выполнить из консоли: `curl -X GET "http://localhost:8000/wallet/1"`
